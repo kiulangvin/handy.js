@@ -15,7 +15,7 @@ const DefaultSideBar = [
 ];
 
 export default {
-  base: '/handy.js/',
+  base: '/',
   title: 'handy.js',
   lang: 'zh-CN',
   themeConfig: {
