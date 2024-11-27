@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "module": "dist/shared.esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "buildOptions": {
+    "name": "handyShared",
+    "formats": [
+      "esm",
+      "cjs"
+    ]
   },
   "keywords": [],
   "author": "",
