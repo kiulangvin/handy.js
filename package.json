@@ -7,7 +7,11 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
     "format": "prettier --write --cache .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest test",
+    "coverage": "vitest run --coverage",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [
@@ -24,12 +28,15 @@
     "@types/node": "^22.9.1",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
+    "@vitest/coverage-v8": "2.1.5",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vitepress": "^1.5.0",
+    "vitest": "^2.1.5"
   }
 }

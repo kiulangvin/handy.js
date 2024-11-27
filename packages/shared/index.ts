@@ -1,3 +1,1 @@
-export function isFunction(val: unknown): val is Function {
-  return typeof val === "function";
-}
+export * from "./src/index.ts"
