@@ -1,22 +1,21 @@
-const fs = require('fs')
-const execa = require('execa')
 
-const pkgs = fs.readdirSync('packages').filter(p => {
-  return fs.statSync(`packages/${p}`).isDirectory()
+
+import fs from 'fs';
+import execa from 'execa';
+// 读取packages目录下的所有文件夹
+const pkgs = fs.readdirSync('packages').filter(dir => {
+  return fs.statSync(`packages/${dir}`).isDirectory()
 })
-
-console.log(pkgs)
-
-const runParallel = (targets, buildFn) => {
+// 构建函数
+const build = async (libName) => {
+  await execa('rollup', ['-c', '--environment', `TARGET:${libName}`], { stdio: 'inherit' })
+}
+// 并行执行
+const run = (pkgs, build) => {
   const res = []
-  for (const target of targets) {
-    res.push(buildFn(target))
+  for (const libName of pkgs) {
+    res.push(build(libName))
   }
   return Promise.all(res)
 }
-
-const build = async (pkg) => {
-  await execa('rollup', ['-c', '--environment', `TARGET:${pkg}`], { stdio: 'inherit' })
-}
-
-runParallel(pkgs, build)
+run(pkgs, build)

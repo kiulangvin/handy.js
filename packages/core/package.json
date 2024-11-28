@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "module": "dist/core.esm.js",
-  "unpkg": "dist/core.js",
+  "type": "module",
   "scripts": {
   },
   "buildOptions": {
     "name": "handyCore",
     "formats": [
       "esm",
+      "esm_min",
       "cjs",
       "umd"
     ]
